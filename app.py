@@ -1,16 +1,11 @@
 import telebot  
 import requests  
-from flask import Flask  
 import time  
 
-app = Flask(__name__)  
+# Prompt for the Telegram bot token when the program runs  
+bot_token = input("Enter your Telegram bot token: ")  
 
-@app.route('/')  
-def home():  
-    return "Hello, I'm alive!"  
-
-# Your Telegram bot token from @BotFather  
-bot_token = '7356945628:AAGVACYyGAscE37BhOp9BnWuH9-mHkYbYI8'  
+# Initialize the Telegram bot  
 bot = telebot.TeleBot(bot_token)  
 
 # API key for the AI service  
@@ -86,11 +81,9 @@ def handle_message(message):
 
 # Start the bot  
 if __name__ == '__main__':  
-    from threading import Thread  
-    Thread(target=app.run, kwargs={'host': '0.0.0.0', 'port': 5000}).start()  
-
     while True:  
         try:  
             bot.polling()  
-        except Exception:  
+        except Exception as e:  
+            print(f"Bot polling error: {str(e)}")  
             time.sleep(15)
