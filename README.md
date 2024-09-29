@@ -20,7 +20,7 @@ This project is a Telegram bot that integrates with an AI service to respond to 
 Clone the repository to your local machine using the following command:  
 
 ```bash  
-git clone https://github.com/your-username/Telegram-AI-Bot.git  
+git clone https://github.com/SurajxTech/universegpt.git  
 cd universegpt
 pip install -r requirements.txt
 python app.py
